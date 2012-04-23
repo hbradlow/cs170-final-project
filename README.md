@@ -8,4 +8,3 @@ cs170-final-project
     pip install -r requirements.txt
     
     python solver.py
-
