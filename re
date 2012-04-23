@@ -8,10 +8,10 @@ django-mailer==0.1.0
 django-openid==0.3a1
 django-staticfiles==1.1.2
 django-timezones==0.2
-numpy==1.6.1
 matplotlib==1.1.0
 metron==0.1
 networkx==1.6
+numpy==1.6.1
 pinax-theme-bootstrap==0.1.2
 python-openid==2.2.5
 pytz==2011n
