@@ -5,7 +5,7 @@ django-compressor==1.0.1
 django-debug-toolbar==0.8.5
 django-email-confirmation==0.2
 django-mailer==0.1.0
-django-openid==0.3a1
+-e git://github.com/simonw/django-openid.git@5062aa93abc9a8d6f90837db690c26ace1c68672#egg=django_openid-dev
 django-staticfiles==1.1.2
 django-timezones==0.2
 numpy==1.6.1
