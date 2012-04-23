@@ -22,6 +22,13 @@ class Node:
 		return num
 	def __str__(self):
 		return self.color + " " + str(self.number)
+	def color_map(self):
+		if self.color=="White":
+			return 0
+		if self.color=="Gray":
+			return 1
+		if self.color=="Black":
+			return 2
 
 #method to calculate total number of white nodes
 def total_whites():
@@ -71,9 +78,20 @@ else:
 	print "domination: fail! not a connected *dominating* set!"
 	print "*** missing nodes:", \
 		  list(set(G.nodes()) - (set(node_boundary(G,l)+l)))
+	raise
 
 # check to see if these nodes induce a connected subgraph
 if is_connected(G.subgraph(l)):
 	print "connectivity: check"
 else:
 	print "connectivity: fail! not a *connected* dominating set!"
+	raise
+
+print "Displaying the graph..." 
+
+import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
+
+pos = spring_layout(G,iterations=200)
+draw(G,pos,node_color=[node.color_map() for node in nodes.values()], node_size=800,cmap=ListedColormap(['w','.25','.5']))
+plt.show()
