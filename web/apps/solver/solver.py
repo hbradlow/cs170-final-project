@@ -3,7 +3,7 @@ from networkx import *
 
 # read example in as an adjacency list
 # watch out for trailing whitespace!
-G=read_adjlist(path="example.adjlist",delimiter=" ",nodetype=int)
+G=read_adjlist(path="graphs/1.adjlist",delimiter=" ",nodetype=int)
 
 # dictionary with {index:Node}
 nodes = {} 
