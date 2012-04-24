@@ -8,6 +8,11 @@
 {% block body_class %}home{% endblock %}
 
 {% block body %}
-<h1>CS170 Final Project Visualized!</h1>
+	<h1>CS170 Final Project Visualized!</h1>
 	{% include "graph.html" %}
+	<form action="{% url solver.views.solver_file_upload %}" method="POST">
+		{% csrf_token %}
+		{{form}}
+		<input type="submit" />
+	</form>
 {% endblock %}

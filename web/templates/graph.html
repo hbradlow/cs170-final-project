@@ -1,37 +1,39 @@
 {% load solver_tags %}
 <script src="/site_media/static/js/protovis.min.js"></script>
 <div id="graph_container">
-<script type="text/javascript">
-		console.log("HERE");
-		var graph = {{ ""|graph }};
-	var w = document.getElementById("graph_container").clientWidth,
-	    h = 500, 
-		    colors = pv.Colors.category19();
+	<script type="text/javascript">
+			console.log("HERE");
+			var graph = {{ ""|graph }};
+			var w = document.getElementById("graph_container").clientWidth,
+				h = 500, 
+				colors = pv.Colors.category19();
 
-var vis = new pv.Panel()
-	    .width(w)
-	    .height(h)
-	    .fillStyle("gray")
-		    .event("mousedown", pv.Behavior.pan())
-			    .event("mousewheel", pv.Behavior.zoom());
+			var vis = new pv.Panel()
+				.width(w)
+				.height(h)
+				.fillStyle("gray")
+				.event("mousedown", pv.Behavior.pan())
+				.event("mousewheel", pv.Behavior.zoom());
 
-		var force = vis.add(pv.Layout.Force)
-	    .nodes(graph.nodes)
-	    .links(graph.links);
+			var force = vis.add(pv.Layout.Force)
+				.nodes(graph.nodes)
+				.links(graph.links);
 
-		force.link.add(pv.Line);
+			force.link.add(pv.Line);
 
 
-		var nodeSize = 100;
-force.node.add(pv.Dot).size(nodeSize)
-.fillStyle(function(d){return d.color;})
-	.strokeStyle("white")
-	    .lineWidth(3)
-.title("this")
-	    .event("mousedown", pv.Behavior.drag())
-		    .event("drag", force);
+			var nodeSize = 100;
+			force.node.add(pv.Dot).size(nodeSize)
+				.fillStyle(function(d){return d.color;})
+				.strokeStyle("white")
+				.lineWidth(3)
+				.title("this")
+				.event("mousedown", pv.Behavior.drag())
+				.event("drag", force);
 
 			force.springLength(100);
+			force.chargeMaxDistance(200);
+			force.chargeConstant(-1000);
 			vis.render();
-</script>
+	</script>
 </div>
