@@ -1,7 +1,18 @@
 from networkx import *
 import random
 
-G = Graph() 
-G.add_nodes_from(range(100))
-G.add_edges_from([(random.choice(range(100)),random.choice(range(100))) for i in range(300)])
-write_adjlist(G,"graphs/1.adjlist")
+def three_level_graph(x = 2,path="graphs/1.adjlist"):
+	G = Graph()
+	G.add_nodes_from(range(7*x))
+
+	for i in range(x):
+		G.add_edges_from([(i,a) for a in range(x+i*3,3+i*3+x)])
+		if i!=x-1:
+			G.add_edges_from([(i,i+1)])
+	for i in range(x,4*x):
+		G.add_edges_from([(i,i+3*x)])
+		if i!=4*x-1:
+			G.add_edges_from([(i,i+1)])
+	write_adjlist(G,path)
+
+three_level_graph(14)

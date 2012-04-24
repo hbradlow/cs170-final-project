@@ -9,6 +9,7 @@ def graph(g=None):
 	g = G
 	r = {"nodes":[],"links":[]}
 	i = 0
+	r["num_blacks"] = num_blacks
 	for n in g.adjacency_list():
 		r['nodes'].append({"nodeName":str(i),"group":"1","color":nodes.values()[i].color})
 		for l in n:

@@ -1,11 +1,20 @@
 {% load solver_tags %}
 <script src="/site_media/static/js/protovis.min.js"></script>
+<div class="hero-unit" id="info" style="padding:5px;">
+	<h3>Graph info:</h3>
+	<div class="row">
+		<div class="span4">
+			<p>Size of dominating set: <span id="num_blacks"></span></p>
+		</div>
+	</div>
+</div>
 <div id="graph_container">
 	<script type="text/javascript">
 			console.log("HERE");
 			var graph = {{ ""|graph }};
+			$("#num_blacks").html(graph['num_blacks']);
 			var w = document.getElementById("graph_container").clientWidth,
-				h = 500, 
+				h = 600, 
 				colors = pv.Colors.category19();
 
 			var vis = new pv.Panel()
@@ -31,7 +40,7 @@
 				.event("mousedown", pv.Behavior.drag())
 				.event("drag", force);
 
-			force.springLength(200);
+			force.springLength(40);
 			force.chargeMaxDistance(200);
 			force.chargeConstant(-1000);
 			vis.render();

@@ -41,6 +41,7 @@ def total_whites():
 #set up nodes from adjaaceny list
 i = 0
 for node in G.adjacency_list():
+	print node
 	n = Node()
 	n.links = node
 	n.number = i
@@ -61,12 +62,29 @@ while total_whites()>0:
 			n.color = "Gray"
 	node = max_whites([n for n in nodes.values() if n.color=="Gray"]) 
 
+def post_process():
+	i = 0
+	for node in nodes.values():
+		if node.color=="Black":
+			all_black = True
+			for l in node.links:
+				if nodes[l].color!="Black":
+					all_black = False
+			if all_black:
+				H = G.subgraph([a for a in range(len(nodes.values())) if a!=i and nodes[a].color=="Black"])
+				if is_connected(H):
+					node.color="Gray"
+		i+=1
+#post_process()
+
+
 #pull out black nodes
 l = []
 for node in nodes.values():
 	if node.color=="Black":
 		l.append(node.number)
 print l
+num_blacks = len(l)
 
 
 
