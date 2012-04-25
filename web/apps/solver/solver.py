@@ -75,7 +75,7 @@ def post_process():
 				if is_connected(H):
 					node.color="Gray"
 		i+=1
-#post_process()
+post_process()
 
 
 #pull out black nodes
