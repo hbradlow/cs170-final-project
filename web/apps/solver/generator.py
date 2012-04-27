@@ -3,7 +3,7 @@ import random
 
 def three_level_graph(x = 2,path="graphs/1.adjlist"):
 	G = Graph()
-	G.add_nodes_from(range(7*x))
+	G.add_nodes_from(range(7*x+2))
 
 	for i in range(x):
 		G.add_edges_from([(i,a) for a in range(x+i*3,3+i*3+x)])
@@ -14,6 +14,7 @@ def three_level_graph(x = 2,path="graphs/1.adjlist"):
 		G.add_edges_from([(i,i+3*x)])
 		if i!=4*x-1:
 			G.add_edges_from([(i,i+1)])
+	G.add_edges_from([(0,7*x),(x-1,7*x+1),(x,7*x),(4*x-1,7*x+1)])
 	write_adjlist(G,path)
 
 three_level_graph(14)
