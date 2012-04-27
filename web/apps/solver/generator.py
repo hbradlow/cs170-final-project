@@ -7,6 +7,7 @@ def three_level_graph(x = 2,path="graphs/1.adjlist"):
 
 	for i in range(x):
 		G.add_edges_from([(i,a) for a in range(x+i*3,3+i*3+x)])
+#		G.add_edges_from([(i,a) for a in range(0,x) if (a>i)])
 		if i!=x-1:
 			G.add_edges_from([(i,i+1)])
 	for i in range(x,4*x):

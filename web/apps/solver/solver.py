@@ -20,6 +20,12 @@ class Node:
 			if nodes[l].color == "White":
 				num += 1
 		return num
+	def num_blacks(self):
+		num = 0
+		for l in self.links:
+			if nodes[l].color == "Black":
+				num += 1
+		return num
 	def __str__(self):
 		return self.color + " " + str(self.number)
 	def color_map(self):
@@ -68,7 +74,7 @@ def post_process():
 		if node.color=="Black":
 			all_black = True
 			for l in node.links:
-				if nodes[l].color!="Black":
+				if nodes[l].color!="Black" and nodes[l].num_blacks()==1:
 					all_black = False
 			if all_black:
 				H = G.subgraph([a for a in range(len(nodes.values())) if a!=i and nodes[a].color=="Black"])
