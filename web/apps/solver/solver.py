@@ -111,6 +111,10 @@ else:
 	print "connectivity: fail! not a *connected* dominating set!"
 	raise
 
+f = open("my_solution.txt","w")
+print " ".join([str(a) for a in l])
+f.write(" ".join([str(a) for a in l]))
+
 """
 print "Displaying the graph..." 
 
