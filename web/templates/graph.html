@@ -40,9 +40,9 @@
 				.event("mousedown", pv.Behavior.drag())
 				.event("drag", force);
 
-			force.springLength(40);
+			force.springLength(100);
 			force.chargeMaxDistance(200);
-			force.chargeConstant(-1000);
+			force.chargeConstant(-10);
 			vis.render();
 	</script>
 </div>
