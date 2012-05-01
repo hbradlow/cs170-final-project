@@ -27,7 +27,7 @@ def report_result(instanceNum,val):
 def check_file(fname, sol):
     G=read_adjlist(path=fname,delimiter=" ",nodetype=int)
     instanceNum = grabnum(fname)
-    if (sol == 'disconnected' or sol == "DISCONNECTED"):
+    if (sol == 'disconnected' or sol == 'DISCONNECTED'):
         if (not is_connected(G)):
             report_result(instanceNum,0)
         else:

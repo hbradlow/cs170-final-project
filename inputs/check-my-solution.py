@@ -9,7 +9,7 @@ sol_file = sys.argv[1]
 f = open(sol_file)
 global results
 
-results = [-1 for x in xrange(64)]
+results = [-1 for x in xrange(65)]
 
 #print results
 
